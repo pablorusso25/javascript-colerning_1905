@@ -43,9 +43,45 @@ class CarritoDeCompras{
     }
     eliminarUnidad(unidadParametro){
         //Completar la tarea!!
+        switch (unidadParametro) {
+            case 1:
+                this.unidad1 = null;
+                return true;
+            break; 
+            case 2:
+                this.unidad2 = null;
+                return true;
+            break;  
+            case 3:
+                this.unidad3 = null;
+                return true;
+            break;  
+            case 4:
+                this.unidad4 = null;
+                return true;
+            break;  
+            default:
+                // "Unidad no valida";
+                return false;
+        }
     }
     calcularTotal(){
         //Completar la tarea!!
+        let total_cant = 0;
+        if(this.unidad1 !== null){
+            total_cant = total_cant + this.unidad1.cantidad;
+        }
+        if(this.unidad2 !== null){
+            total_cant = total_cant + this.unidad2.cantidad;
+        }
+        if(this.unidad3 !== null){
+            total_cant = total_cant + this.unidad3.cantidad;
+        }
+        if(this.unidad4 !== null){
+            total_cant = total_cant + this.unidad4.cantidad;
+        }
+        // retorno el total
+        return total_cant;
     }
 }
 
@@ -54,8 +90,8 @@ const articulo1 = new Articulo('detergente', 150, 2);
 const articulo2 = new Articulo('esponja', 5, 5);
 const articulo3 = new Articulo('fosforos', 90, 1);
 const articulo4 = new Articulo('Papel de cocina', 110, 3);
-console.log(articulo1);
-console.log(articulo2);
+//console.log(articulo1);
+//console.log(articulo2);
 
 //Creo un carrito
 const miPrimerCarrito = new CarritoDeCompras(articulo1, articulo2, null, null)
@@ -63,4 +99,8 @@ const miPrimerCarrito = new CarritoDeCompras(articulo1, articulo2, null, null)
 miPrimerCarrito.agregarUnidad(articulo3);
 miPrimerCarrito.agregarUnidad(articulo4);
 
-console.log(miPrimerCarrito);
+//console.log(miPrimerCarrito);
+// total articulos
+console.log("Cantidad antes de borrado:", miPrimerCarrito.calcularTotal()); 
+console.log("Borra Unidad 2:", miPrimerCarrito.eliminarUnidad(2)); 
+console.log("Cantidad luego del borrado:", miPrimerCarrito.calcularTotal()); 
